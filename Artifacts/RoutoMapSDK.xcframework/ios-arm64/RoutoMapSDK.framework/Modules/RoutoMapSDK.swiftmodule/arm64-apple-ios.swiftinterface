@@ -1,0 +1,69 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RoutoMapSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import Combine
+import CoreGraphics
+import CoreLocation
+import DeveloperToolsSupport
+import Dispatch
+import Foundation
+import MapboxCoreMaps
+import MapboxMaps
+@_exported import RoutoMapSDK
+import Swift
+import SwiftUI
+import Turf
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension MapboxMaps.AnyCancelable {
+  public func store(in set: inout Swift.Set<Combine.AnyCancellable>)
+  public func store<C>(in collection: inout C) where C : Swift.RangeReplaceableCollection, C.Element == Combine.AnyCancellable
+}
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension Combine.AnyCancellable {
+  final public func store(in set: inout Swift.Set<MapboxMaps.AnyCancelable>)
+  @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+  final public func store<C>(in collection: inout C) where C : Swift.RangeReplaceableCollection, C.Element == MapboxMaps.AnyCancelable
+}
+open class RoutoMaps {
+  public init()
+  public func initialize(_ accessToken: Swift.String = "", completion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ClientInterface {
+  public static let shard: RoutoMapSDK.ClientInterface
+  @objc deinit
+}
+public struct RoutoStyle : Swift.Hashable, Swift.RawRepresentable {
+  public typealias RawValue = Swift.String
+  public let rawValue: Swift.String
+  public init?(rawValue: Swift.String)
+  public init?(url: Foundation.URL)
+  public static let routo: MapboxMaps.StyleURI?
+  public static let routo_dark: MapboxMaps.StyleURI?
+}
+@_Concurrency.MainActor(unsafe) open class RoutoMapView : MapboxMaps.MapView, MapboxMaps.GestureManagerDelegate {
+  @_Concurrency.MainActor(unsafe) override public init(frame: CoreFoundation.CGRect, mapInitOptions: MapboxMaps.MapInitOptions = MapInitOptions())
+  @_Concurrency.MainActor(unsafe) override public init(frame: CoreFoundation.CGRect, mapInitOptions: MapboxMaps.MapInitOptions = MapInitOptions(), urlOpener: any MapboxMaps.AttributionURLOpener)
+  @available(iOSApplicationExtension, unavailable)
+  @_Concurrency.MainActor @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func gestureManager(_ gestureManager: MapboxMaps.GestureManager, didBegin gestureType: MapboxMaps.GestureType)
+  @_Concurrency.MainActor(unsafe) public func gestureManager(_ gestureManager: MapboxMaps.GestureManager, didEnd gestureType: MapboxMaps.GestureType, willAnimate: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func gestureManager(_ gestureManager: MapboxMaps.GestureManager, didEndAnimatingFor gestureType: MapboxMaps.GestureType)
+  @objc deinit
+}
+public struct Signal<Payload> {
+  public typealias Handler = (Payload) -> Swift.Void
+  public typealias ObserveImpl = (@escaping RoutoMapSDK.Signal<Payload>.Handler) -> MapboxMaps.AnyCancelable
+  public func observe(_ handler: @escaping RoutoMapSDK.Signal<Payload>.Handler) -> MapboxMaps.AnyCancelable
+  public init(observeImpl: @escaping RoutoMapSDK.Signal<Payload>.ObserveImpl)
+}
+extension RoutoMapSDK.Signal {
+  public init(just constant: Payload)
+  public func observeNext(_ handler: @escaping RoutoMapSDK.Signal<Payload>.Handler) -> MapboxMaps.AnyCancelable
+}

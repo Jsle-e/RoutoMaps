@@ -1,0 +1,11 @@
+framework module RoutoMapSDK {
+  umbrella header "RoutoMapSDK.h"
+  export *
+
+  module * { export * }
+}
+
+module RoutoMapSDK.Swift {
+  header "RoutoMapSDK-Swift.h"
+  requires objc
+}

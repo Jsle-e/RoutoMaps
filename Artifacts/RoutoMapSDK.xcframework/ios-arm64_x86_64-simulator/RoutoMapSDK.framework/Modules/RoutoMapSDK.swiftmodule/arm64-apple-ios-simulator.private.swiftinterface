@@ -1,0 +1,248 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RoutoMapSDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import Combine
+import CoreGraphics
+import CoreLocation
+import DeveloperToolsSupport
+import Dispatch
+import Foundation
+import MapboxCoreMaps
+@_spi(Experimental) import MapboxMaps
+@_exported import RoutoMapSDK
+import Swift
+import SwiftUI
+import Turf
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_spi(Experimental) @_documentation(visibility: public) public struct ForEvery<Content, Data, ID> where Data : Swift.RandomAccessCollection, ID : Swift.Hashable {
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+extension RoutoMapSDK.ForEvery : RoutoMapSDK.MapContent where Content == any RoutoMapSDK.MapContent {
+  @_spi(Experimental) @_documentation(visibility: public) public init(_ data: Data, id: Swift.KeyPath<Data.Element, ID>, @RoutoMapSDK.MapContentBuilder content: @escaping (Data.Element) -> Content)
+  @_spi(Experimental) @available(iOS 13.0, *)
+  @_documentation(visibility: public) public init(_ data: Data, @RoutoMapSDK.MapContentBuilder content: @escaping (Data.Element) -> Content) where ID == Data.Element.ID, Data.Element : Swift.Identifiable
+}
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension MapboxMaps.AnyCancelable {
+  public func store(in set: inout Swift.Set<Combine.AnyCancellable>)
+  public func store<C>(in collection: inout C) where C : Swift.RangeReplaceableCollection, C.Element == Combine.AnyCancellable
+}
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension Combine.AnyCancellable {
+  final public func store(in set: inout Swift.Set<MapboxMaps.AnyCancelable>)
+  @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+  final public func store<C>(in collection: inout C) where C : Swift.RangeReplaceableCollection, C.Element == MapboxMaps.AnyCancelable
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) public struct RoutoMap : SwiftUI.UIViewControllerRepresentable {
+  @_spi(Experimental) @available(iOSApplicationExtension, unavailable)
+  @_documentation(visibility: public) public init(viewport: SwiftUI.Binding<RoutoMapSDK.Viewport>, @RoutoMapSDK.MapContentBuilder content: @escaping () -> any RoutoMapSDK.MapContent)
+  @_spi(Experimental) @available(iOSApplicationExtension, unavailable)
+  @_documentation(visibility: public) public init(initialViewport: RoutoMapSDK.Viewport = .styleDefault, @RoutoMapSDK.MapContentBuilder content: @escaping () -> any RoutoMapSDK.MapContent)
+  @_spi(Experimental) @_Concurrency.MainActor(unsafe) public func makeCoordinator() -> RoutoMapSDK.RoutoMap.Coordinator
+  @_spi(Experimental) @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: RoutoMapSDK.RoutoMap.Context) -> UIKit.UIViewController
+  @_spi(Experimental) @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ mapController: UIKit.UIViewController, context: RoutoMapSDK.RoutoMap.Context)
+  @_spi(Experimental) public typealias Body = Swift.Never
+  @_spi(Experimental) public typealias UIViewControllerType = UIKit.UIViewController
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) extension RoutoMapSDK.RoutoMap {
+  @_spi(Experimental) @available(iOSApplicationExtension, unavailable)
+  @_documentation(visibility: public) public init(viewport: SwiftUI.Binding<RoutoMapSDK.Viewport>)
+  @_spi(Experimental) @available(iOSApplicationExtension, unavailable)
+  @_documentation(visibility: public) public init(initialViewport: RoutoMapSDK.Viewport = .styleDefault)
+  @_spi(Experimental) @_documentation(visibility: public) public init(viewport: SwiftUI.Binding<RoutoMapSDK.Viewport>, urlOpener: @escaping RoutoMapSDK.MapURLOpener, @RoutoMapSDK.MapContentBuilder content: @escaping () -> any RoutoMapSDK.MapContent)
+  @_spi(Experimental) @_documentation(visibility: public) public init(initialViewport: RoutoMapSDK.Viewport = .styleDefault, urlOpener: @escaping RoutoMapSDK.MapURLOpener, @RoutoMapSDK.MapContentBuilder content: @escaping () -> any RoutoMapSDK.MapContent)
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) extension RoutoMapSDK.RoutoMap {
+  @_spi(Experimental) @_documentation(visibility: public) public func cameraBounds(_ cameraBounds: MapboxMaps.CameraBoundsOptions) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func mapStyle(_ mapStyle: MapboxMaps.MapStyle) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func gestureOptions(_ options: MapboxMaps.GestureOptions) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func constrainMode(_ constrainMode: MapboxCoreMaps.ConstrainMode) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func viewportMode(_ viewportMode: MapboxCoreMaps.ViewportMode) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func northOrientation(_ northOrientation: MapboxCoreMaps.NorthOrientation) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func ornamentOptions(_ options: MapboxMaps.OrnamentOptions) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func debugOptions(_ debugOptions: MapboxMaps.MapViewDebugOptions) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func presentsWithTransaction(_ value: Swift.Bool) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func transitionsToIdleUponUserInteraction(_ value: Swift.Bool) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func usesSafeAreaInsetsAsPadding(_ value: Swift.Bool) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func additionalSafeAreaInsets(_ insets: SwiftUI.EdgeInsets) -> RoutoMapSDK.RoutoMap
+  @_spi(Experimental) @_documentation(visibility: public) public func additionalSafeAreaInsets(_ edges: SwiftUI.Edge.Set = .all, _ length: CoreFoundation.CGFloat) -> RoutoMapSDK.RoutoMap
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+extension RoutoMapSDK.RoutoMap {
+  @_spi(Experimental) @_hasMissingDesignatedInitializers final public class Coordinator {
+    @_spi(Experimental) @objc deinit
+  }
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) public struct Viewport : Swift.Equatable {
+  @_spi(Experimental) @_documentation(visibility: public) public struct OverviewOptions : Swift.Equatable {
+    @_spi(Experimental) @_documentation(visibility: public) public var geometry: Turf.Geometry
+    @_spi(Experimental) @_documentation(visibility: public) public var bearing: CoreFoundation.CGFloat
+    @_spi(Experimental) @_documentation(visibility: public) public var pitch: CoreFoundation.CGFloat
+    @_spi(Experimental) @_documentation(visibility: public) public var geometryPadding: SwiftUI.EdgeInsets
+    @_spi(Experimental) @_documentation(visibility: public) public var maxZoom: Swift.Double?
+    @_spi(Experimental) @_documentation(visibility: public) public var offset: CoreFoundation.CGPoint?
+    @_spi(Experimental) public static func == (a: RoutoMapSDK.Viewport.OverviewOptions, b: RoutoMapSDK.Viewport.OverviewOptions) -> Swift.Bool
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public struct FollowPuckOptions : Swift.Equatable {
+    @_spi(Experimental) @_documentation(visibility: public) public var zoom: CoreFoundation.CGFloat
+    @_spi(Experimental) @_documentation(visibility: public) public var bearing: MapboxMaps.FollowPuckViewportStateBearing
+    @_spi(Experimental) @_documentation(visibility: public) public var pitch: CoreFoundation.CGFloat
+    @_spi(Experimental) public static func == (a: RoutoMapSDK.Viewport.FollowPuckOptions, b: RoutoMapSDK.Viewport.FollowPuckOptions) -> Swift.Bool
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var padding: SwiftUI.EdgeInsets
+  @_spi(Experimental) @_documentation(visibility: public) public static var idle: RoutoMapSDK.Viewport {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public static var styleDefault: RoutoMapSDK.Viewport {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public static func camera(center: CoreLocation.CLLocationCoordinate2D? = nil, anchor: CoreFoundation.CGPoint? = nil, zoom: CoreFoundation.CGFloat? = nil, bearing: CoreLocation.CLLocationDirection? = nil, pitch: CoreFoundation.CGFloat? = nil) -> RoutoMapSDK.Viewport
+  @_spi(Experimental) @_documentation(visibility: public) public static func overview(geometry: any Turf.GeometryConvertible, bearing: CoreFoundation.CGFloat = 0, pitch: CoreFoundation.CGFloat = 0, geometryPadding: SwiftUI.EdgeInsets = .init(), maxZoom: Swift.Double? = nil, offset: CoreFoundation.CGPoint? = nil) -> RoutoMapSDK.Viewport
+  @_spi(Experimental) @_documentation(visibility: public) public static func followPuck(zoom: CoreFoundation.CGFloat, bearing: MapboxMaps.FollowPuckViewportStateBearing = .constant(0), pitch: CoreFoundation.CGFloat = 0) -> RoutoMapSDK.Viewport
+  @_spi(Experimental) @available(*, deprecated, renamed: "padding")
+  public func inset(by insets: SwiftUI.EdgeInsets, ignoringSafeArea: SwiftUI.Edge.Set = []) -> RoutoMapSDK.Viewport
+  @_spi(Experimental) @available(*, unavailable, renamed: "padding")
+  public func inset(edges: SwiftUI.Edge.Set, length: CoreFoundation.CGFloat, ignoringSafeArea: Swift.Bool = false) -> RoutoMapSDK.Viewport
+  @_spi(Experimental) @_documentation(visibility: public) public func padding(_ padding: SwiftUI.EdgeInsets) -> RoutoMapSDK.Viewport
+  @_spi(Experimental) @_documentation(visibility: public) public func padding(_ edges: SwiftUI.Edge.Set = .all, _ length: CoreFoundation.CGFloat) -> RoutoMapSDK.Viewport
+  @_spi(Experimental) @_documentation(visibility: public) public var isIdle: Swift.Bool {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var isStyleDefault: Swift.Bool {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var camera: MapboxMaps.CameraOptions? {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var overview: RoutoMapSDK.Viewport.OverviewOptions? {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var followPuck: RoutoMapSDK.Viewport.FollowPuckOptions? {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) public static func == (a: RoutoMapSDK.Viewport, b: RoutoMapSDK.Viewport) -> Swift.Bool
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) public struct RoutoMapViewAnnotation : RoutoMapSDK.MapContent {
+  @_spi(Experimental) @available(iOS 13.0, *)
+  @_documentation(visibility: public) public init<Content>(coordinate: CoreLocation.CLLocationCoordinate2D, @SwiftUI.ViewBuilder content: @escaping () -> Content) where Content : SwiftUI.View
+  @_spi(Experimental) @available(iOS 13.0, *)
+  @_documentation(visibility: public) public init<Content>(layerId: Swift.String, featureId: Swift.String? = nil, @SwiftUI.ViewBuilder content: @escaping () -> Content) where Content : SwiftUI.View
+  @_spi(Experimental) @available(iOS 13.0, *)
+  @_documentation(visibility: public) public init<Content>(annotatedFeature: MapboxMaps.AnnotatedFeature, @SwiftUI.ViewBuilder content: @escaping () -> Content) where Content : SwiftUI.View
+  @_spi(Experimental) @_documentation(visibility: public) public func allowOverlap(_ allowOverlap: Swift.Bool) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func allowOverlapWithPuck(_ allowOverlapWithPuck: Swift.Bool) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func ignoreCameraPadding(_ ignoreCameraPadding: Swift.Bool) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func visible(_ visible: Swift.Bool) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func selected(_ selected: Swift.Bool = false) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func variableAnchors(_ variableAnchors: [MapboxCoreMaps.ViewAnnotationAnchorConfig]) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func onAnchorChanged(action: @escaping (MapboxCoreMaps.ViewAnnotationAnchorConfig) -> Swift.Void) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func onVisibilityChanged(action: @escaping (Swift.Bool) -> Swift.Void) -> RoutoMapSDK.RoutoMapViewAnnotation
+  @_spi(Experimental) @_documentation(visibility: public) public func onAnchorCoordinateChanged(action: @escaping (CoreLocation.CLLocationCoordinate2D) -> Swift.Void) -> RoutoMapSDK.RoutoMapViewAnnotation
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) public struct MapReader<Content> : SwiftUI.View where Content : SwiftUI.View {
+  @_spi(Experimental) @_documentation(visibility: public) public typealias ContentProvider = (RoutoMapSDK.MapProxy) -> Content
+  @_spi(Experimental) public var content: RoutoMapSDK.MapReader<Content>.ContentProvider
+  @_spi(Experimental) @_documentation(visibility: public) public init(content: @escaping RoutoMapSDK.MapReader<Content>.ContentProvider)
+  @_spi(Experimental) @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) public typealias Body = @_opaqueReturnTypeOf("$s11RoutoMapSDK0B6ReaderV4bodyQrvp", 0) __<Content>
+}
+open class RoutoMaps {
+  public init()
+  public func initialize(_ accessToken: Swift.String = "", completion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc deinit
+}
+@_spi(Experimental) @available(iOS 13, *)
+@_documentation(visibility: public) public typealias MapURLOpener = (Foundation.URL) -> Swift.Void
+@_hasMissingDesignatedInitializers open class ClientInterface {
+  public static let shard: RoutoMapSDK.ClientInterface
+  @objc deinit
+}
+public struct RoutoStyle : Swift.Hashable, Swift.RawRepresentable {
+  public typealias RawValue = Swift.String
+  public let rawValue: Swift.String
+  public init?(rawValue: Swift.String)
+  public init?(url: Foundation.URL)
+  public static let routo: MapboxMaps.StyleURI?
+  public static let routo_dark: MapboxMaps.StyleURI?
+}
+@_spi(Experimental) @_documentation(visibility: public) public struct ViewportAnimation {
+  @_spi(Experimental) @_documentation(visibility: public) public typealias ViewportTransitionFactory = (MapboxMaps.MapView) -> any MapboxMaps.ViewportTransition
+  @_spi(Experimental) @_documentation(visibility: public) public var makeViewportTransition: RoutoMapSDK.ViewportAnimation.ViewportTransitionFactory
+  @_spi(Experimental) @_documentation(visibility: public) public static var `default`: RoutoMapSDK.ViewportAnimation {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public static func `default`(maxDuration: Foundation.TimeInterval) -> RoutoMapSDK.ViewportAnimation
+  @_spi(Experimental) @_documentation(visibility: public) public static var fly: RoutoMapSDK.ViewportAnimation {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public static func fly(duration: Foundation.TimeInterval) -> RoutoMapSDK.ViewportAnimation
+  @_spi(Experimental) @_documentation(visibility: public) public static func easeOut(duration: Foundation.TimeInterval) -> RoutoMapSDK.ViewportAnimation
+  @_spi(Experimental) @_documentation(visibility: public) public static func easeIn(duration: Foundation.TimeInterval) -> RoutoMapSDK.ViewportAnimation
+  @_spi(Experimental) @_documentation(visibility: public) public static func easeInOut(duration: Foundation.TimeInterval) -> RoutoMapSDK.ViewportAnimation
+  @_spi(Experimental) @_documentation(visibility: public) public static func linear(duration: Foundation.TimeInterval) -> RoutoMapSDK.ViewportAnimation
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) public func withViewportAnimation<Result>(_ animation: RoutoMapSDK.ViewportAnimation = .default, body: () throws -> Result, completion: ((Swift.Bool) -> Swift.Void)? = nil) rethrows -> Result
+@_spi(Experimental) @_documentation(visibility: public) public protocol MapContent {
+}
+@_spi(Experimental) @available(iOS 13.0, *)
+@_documentation(visibility: public) public struct MapProxy {
+  @_spi(Experimental) @_documentation(visibility: public) public var camera: MapboxMaps.CameraAnimationsManager? {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var map: MapboxMaps.MapboxMap? {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var viewport: MapboxMaps.ViewportManager? {
+    @_spi(Experimental) get
+  }
+  @_spi(Experimental) @_documentation(visibility: public) public var location: MapboxMaps.LocationManager? {
+    @_spi(Experimental) get
+  }
+}
+@_Concurrency.MainActor(unsafe) open class RoutoMapView : MapboxMaps.MapView, MapboxMaps.GestureManagerDelegate {
+  @_Concurrency.MainActor(unsafe) override public init(frame: CoreFoundation.CGRect, mapInitOptions: MapboxMaps.MapInitOptions = MapInitOptions())
+  @_Concurrency.MainActor(unsafe) override public init(frame: CoreFoundation.CGRect, mapInitOptions: MapboxMaps.MapInitOptions = MapInitOptions(), urlOpener: any MapboxMaps.AttributionURLOpener)
+  @available(iOSApplicationExtension, unavailable)
+  @_Concurrency.MainActor @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func gestureManager(_ gestureManager: MapboxMaps.GestureManager, didBegin gestureType: MapboxMaps.GestureType)
+  @_Concurrency.MainActor(unsafe) public func gestureManager(_ gestureManager: MapboxMaps.GestureManager, didEnd gestureType: MapboxMaps.GestureType, willAnimate: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) public func gestureManager(_ gestureManager: MapboxMaps.GestureManager, didEndAnimatingFor gestureType: MapboxMaps.GestureType)
+  @objc deinit
+}
+@_spi(Experimental) @_documentation(visibility: public) @_functionBuilder public struct MapContentBuilder {
+  @_spi(Experimental) public static func buildBlock(_ content: any RoutoMapSDK.MapContent...) -> any RoutoMapSDK.MapContent
+  @_spi(Experimental) public static func buildOptional(_ content: (any RoutoMapSDK.MapContent)?) -> any RoutoMapSDK.MapContent
+  @_spi(Experimental) public static func buildEither(first component: any RoutoMapSDK.MapContent) -> any RoutoMapSDK.MapContent
+  @_spi(Experimental) public static func buildEither(second component: any RoutoMapSDK.MapContent) -> any RoutoMapSDK.MapContent
+}
+@_spi(Experimental) @_documentation(visibility: public) @_functionBuilder public struct ArrayBuilder<T> {
+  @_spi(Experimental) public static func buildBlock(_ components: [T?]...) -> [T?]
+  @_spi(Experimental) public static func buildExpression(_ expression: T) -> [T?]
+  @_spi(Experimental) public static func buildOptional(_ component: [T?]?) -> [T?]
+  @_spi(Experimental) public static func buildEither(first component: [T?]) -> [T?]
+  @_spi(Experimental) public static func buildEither(second component: [T?]) -> [T?]
+}
+public struct Signal<Payload> {
+  public typealias Handler = (Payload) -> Swift.Void
+  public typealias ObserveImpl = (@escaping RoutoMapSDK.Signal<Payload>.Handler) -> MapboxMaps.AnyCancelable
+  public func observe(_ handler: @escaping RoutoMapSDK.Signal<Payload>.Handler) -> MapboxMaps.AnyCancelable
+  public init(observeImpl: @escaping RoutoMapSDK.Signal<Payload>.ObserveImpl)
+}
+extension RoutoMapSDK.Signal {
+  public init(just constant: Payload)
+  public func observeNext(_ handler: @escaping RoutoMapSDK.Signal<Payload>.Handler) -> MapboxMaps.AnyCancelable
+}
