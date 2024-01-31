@@ -22,6 +22,22 @@ let package = Package(
         .binaryTarget(
             name: "RoutoMapSDK",
             path: "Artifacts/RoutoMapSDK.xcframework"
+        ),
+        .binaryTarget(
+            name: "MapboxCommon",
+            path: "Artifacts/MapboxCommon.xcframework"
+        ),
+        .binaryTarget(
+            name: "MapboxCoreMaps",
+            path: "Artifacts/MapboxCoreMaps.xcframework"
+        ),
+        .binaryTarget(
+            name: "MapboxMaps",
+            path: "Artifacts/MapboxMaps.xcframework"
+        ),
+        .binaryTarget(
+            name: "Turf",
+            path: "Artifacts/Turf.xcframework"
         )
     ]
 )
